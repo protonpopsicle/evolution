@@ -34,7 +34,7 @@ def lifecycle(population):
 
     mother, father = sorted_population[:2]
     new_population = [offspring(mother, father, one_point_xover) for i in range(0, SEQ_LEN - 1)]
-    return lifecycle(new_population + [mother])
+    return lifecycle([mother] + new_population)
 
 population = [rand_sequence() for i in range(0, POP_SIZE)]
 lifecycle(population)
