@@ -1,11 +1,11 @@
 from random import randint
 
-SEQ_LEN = 5
+SEQ_LEN = 7
 SEQ_MAX = 100
 POP_SIZE = 4
 
 def rand_sequence():
-    return [randint(0, SEQ_MAX) for i in range(0, SEQ_LEN)]
+    return [randint(0, SEQ_MAX) for i in range(SEQ_LEN)]
 
 def mutate(sequence):
     rand_index = randint(0, SEQ_LEN - 1)
@@ -33,7 +33,7 @@ def lifecycle(population):
     raw_input('Press Enter')
 
     mother, father = sorted_population[:2]
-    new_population = [offspring(mother, father, one_point_xover) for i in range(0, SEQ_LEN - 1)]
+    new_population = [offspring(mother, father, one_point_xover) for i in range(POP_SIZE - 1)]
     return lifecycle([mother] + new_population)
 
 population = [rand_sequence() for i in range(0, POP_SIZE)]
